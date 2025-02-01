@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: saas-backend
+  template:
+    metadata:
+      labels:
+        app: saas-backend
+    spec:
+      containers:
+      - name: saas-backend
+        image: your-dockerhub-username/saas-backend:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-backend-service
+spec:
+  selector:
+    app: saas-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer

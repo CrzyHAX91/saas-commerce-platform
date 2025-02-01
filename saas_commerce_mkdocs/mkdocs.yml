@@ -1,0 +1,14 @@
+site_name: SaaS Commerce Platform Docs
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - API Documentatie:
+      - Overzicht: api_documentation.md
+  - Infrastructuur:
+      - Terraform & AWS: infrastructure.md
+  - CI/CD Pipeline: cicd.md
+
+plugins:
+  - search
